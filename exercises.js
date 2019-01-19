@@ -61,6 +61,18 @@ console.log("My cat " + cat.name + ' is ' + cat.age + ' years old and likes to '
   Console.log the object.
 */
 
+var kicks = {
+    
+}
+
+kicks.brand = 'Addidas';
+kicks.color = 'Blue & White';
+kicks.size = 10.5;
+kicks.price = 99;
+kicks.buy = function (){
+    return 'Now I is a cool kid!'
+}
+console.log(kicks)
 
 /* 
 
@@ -73,6 +85,15 @@ console.log("My cat " + cat.name + ' is ' + cat.age + ' years old and likes to '
   console.log the object
 */
 
+var plainBox = {
+
+}
+
+plainBox.color = 'Blue';
+plainBox.size = 15;
+plainBox.contents = [];
+
+console.log(plainBox)
 
 /*
 5. Declare a variable named `stockCar` and create the following properties (key-value pairs) to the object:
@@ -85,7 +106,14 @@ console.log("My cat " + cat.name + ' is ' + cat.age + ' years old and likes to '
     console.log the object
 */
 
-
+var stockCar = {
+    model: 'Ford',
+    year: 2019,
+    AutomaticTransmission: false,
+    driver: null,
+    passenger: [],
+}
+console.log(stockCar)
 /*
 
 6. Add new property inside a function
@@ -103,6 +131,16 @@ console.log("My cat " + cat.name + ' is ' + cat.age + ' years old and likes to '
    the value at `name`, and just the value at `age`.
  */
 
+ var plainPerson = {};
+
+function buildPerson(person, nameString, age){
+    plainPerson.name = nameString;
+    plainPerson.age = age;
+
+    return person
+}
+var completePerson = buildPerson(plainPerson,'Kevin', 27);
+console.log(completePerson)
 
 /*
 7. Display values of objects that are inside an array
