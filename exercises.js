@@ -109,7 +109,7 @@ console.log(plainBox)
 var stockCar = {
     model: 'Ford',
     year: 2019,
-    AutomaticTransmission: false,
+    AutomaticTransmission: true,
     driver: null,
     passenger: [],
 }
@@ -239,8 +239,20 @@ console.log(printOrders(arrayOfObjects))
         Invoke your function and pass in your object, store the result to a variable named sumObjResult and use `console.log` 
         to inspect your results.
 */
+ var sumObj = {
+   a: 5,
+   b: 10,
+   result: undefined,
 
+ }
 
+ function objectAddition(obj){
+  obj.result = obj.a + obj.b;
+  return obj
+ }
+
+var sumObjResult = objectAddition(sumObj); //global variable (scope)
+console.log(sumObjResult)
 /*
 9. Print sum function and add as new key-value
    Declare a new function named printObj and a single parameter which will be the object from the challenge just above. 
@@ -258,7 +270,12 @@ console.log(printOrders(arrayOfObjects))
         **create more** objects and invoke your function multiple times.
  */
 
-
+ function printObj(odb){
+      odb.output = odb.a + ' + ' + odb.b + ' = ' + odb.result
+      return odb
+ }
+printObj(sumObj)
+console.log(sumObj)
 /*
 10. Putting stuff in `plainBox`
         Declare a function named putInPlainBox and a single parameter which will be an object. Within this function, write a 
@@ -269,7 +286,13 @@ console.log(printOrders(arrayOfObjects))
         plainBoxResult and use `console.log` to inspect your results.
  */
 
-
+ function putInPlainBox(obj){
+   for(var i = 0; i < 10; i++){ //how big the array is
+    obj.contents.push(Math.floor(Math.random()*10)); //the highest number in the array
+   }
+   return obj
+ }
+console.log(putInPlainBox(plainBox))
 /*
 11. Detecting transmission
     Declare a function named detectingTransmission and a single parameter which will be an object. Within this function 
@@ -281,7 +304,14 @@ console.log(printOrders(arrayOfObjects))
     Invoke your function and pass in your stockCar object, store the result to a variable named isAutomaticTransmission and use `console.log` to inspect your results.
  */
 
-
+ function detectingTransmission(obj){
+   if(obj.AutomaticTransmission === false){
+     return "Your car is MT"
+   }else{
+     return "Your car is AT"
+   }
+ }
+console.log(detectingTransmission(stockCar))
 /*
 12.  Who's driving this thing?!
      As you may have noticed that the `stockCar` doesn't have a driver!
@@ -294,9 +324,12 @@ console.log(printOrders(arrayOfObjects))
       your results. Consider using `plainPerson` as your driver.
  */
 
-
-
-
+ function addDriver(obj, person){
+    stockCar.driver = person;
+     return obj
+ }
+var stockCarWithDriver = addDriver(stockCar, plainPerson.name);
+console.log(stockCarWithDriver)
 /*
     #Final Boss
     The Dev League instructors want to ride your whip!
@@ -329,3 +362,16 @@ console.log(printOrders(arrayOfObjects))
         'Marifel, age 19, is riding dirty!'
         'Victor, age 19, is riding dirty!'
  */
+var passengerList = ['Jon', 'Jason', 'Tony', 'Joe', 'Jesse', 'Nigel', 'Kelli', 'Marifel', 'Victor']
+var passengerAges = [19, 12, 21, 22, 16, 9, 19, 20, 15];
+
+function addPassengers(car, names, ages){
+  for(var i = 0; i<names.length && ages.length; i++){
+    buildPerson(plainPerson, names[i], ages[i])
+    console.log(plainPerson)
+    stockCar.passenger.push(plainPerson.name, plainPerson.age)
+    }
+  return car
+}
+addPassengers(stockCar, passengerList, passengerAges)
+console.log(stockCar)
