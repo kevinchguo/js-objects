@@ -141,6 +141,7 @@ function buildPerson(person, nameString, age){
 }
 var completePerson = buildPerson(plainPerson,'Kevin', 27);
 console.log(completePerson)
+console.log('Plain perrson', plainPerson)
 
 /*
 7. Display values of objects that are inside an array
@@ -367,28 +368,22 @@ var passengerAges = [19, 12, 21, 22, 16, 9, 19, 20, 15];
 
 function addPassengers(car, names, ages){
   for(var i = 0; i<names.length && ages.length; i++){
-    buildPerson(plainPerson, names[i], ages[i])
-    // console.log(plainPerson)
-    stockCar.passenger.push(plainPerson.name, plainPerson.age)
+    var addNewPassenger = {};
+    buildPerson(addNewPassenger, names[i], ages[i]);
+    car.passenger.push(addNewPassenger);
+    console.log(car.passenger.names)
+    
     }
   return car
 }
+
 addPassengers(stockCar, passengerList, passengerAges)
 console.log(stockCar)
 
-function displayPassengers(car){
-  var passenger = [];
-  // var ages = [];
-for(var i = 0; i<car.passenger.length/2; i++){
-  if(i%2 === 0){
-    passenger = car.passenger[i];
-    console.log(passenger[i])
-  }
-  // if(i%2 === 1){
-  //   ages = car.passenger[i];
-  //   console.log(i)
-  }
-  // return passenger[i] + ' age ' + ages + ' is riding dirty!'
-}
+// function displayPassengers(car){
+//   for(var i = 0; i<car.passenger.length; i++){
+//     console.log(i)
+
+//   }
 // }
-console.log(displayPassengers(stockCar))
+// console.log(displayPassengers(stockCar))
